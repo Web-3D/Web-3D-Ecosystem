@@ -15,12 +15,12 @@
 
 ## Bảng tổng — tất cả engines
 
-| Engine     | Phase hiện tại                    | Trạng thái      | Modules done | Ghi chú                             |
-| ---------- | --------------------------------- | --------------- | ------------ | ----------------------------------- |
-| `THREEJS`  | Phase A — Environment Foundation  | 🔄 Đang build   | 2 / 5        | GlobalUniforms ✅, RuntimeGuard ✅   |
-| `BABYLONJS`| Phase A — Environment Foundation  | ⏳ Chưa bắt đầu | 0 / 4        | Bắt đầu sau khi THREEJS Phase A xong |
+| Engine     | Phase hiện tại                    | Trạng thái              | Modules done | Ghi chú                             |
+| ---------- | --------------------------------- | ----------------------- | ------------ | ----------------------------------- |
+| `THREEJS`  | Phase D ✅ hoàn thành             | ✅ Tất cả 4 phases xong | 16 / 16      | Tất cả phase A–D unit-pass. Gallery: 16 modules. |
+| `BABYLONJS`| Phase A — Environment Foundation  | ⏳ Chưa bắt đầu         | 0 / 4        | Bắt đầu sau khi THREEJS Phase D xong |
 
-> Chi tiết từng phase → `THREEJS/ROADMAP.md` và `BABYLONJS/ROADMAP.md`.
+> Tiến trình chi tiết → [`/ROADMAP.md`](ROADMAP.md) (nguồn duy nhất cho status).
 
 **Shared assets:** `assets/` — chưa có asset nào, REGISTRY.json trống.
 
@@ -28,21 +28,37 @@
 
 ## THREEJS
 
-### Trạng thái Phase A
-
-| Module             | Status       |
-| ------------------ | ------------ |
-| `GlobalUniforms`   | ✅ unit-pass |
-| `RuntimeGuard`     | ✅ unit-pass |
-| `TriplanarMapping` | ⏳ chưa code |
-| `WorldNoise`       | ⏳ chưa code |
-| `RoundedCorners`   | ⏳ chưa code |
-
-> Build order + dependency đầy đủ → `THREEJS/ROADMAP.md`
-
-**00-Threejs:** Template sạch — chưa import module nào, `.module-lock.json` chưa có entry.
+**16 modules unit-pass — Phase A–D ✅ hoàn thành 2026-05-15.**
+Gallery: `00-Threejs/src/gallery/` — 16 live canvas cards. Chưa tích hợp vào scene thực tế.
+→ Module index + next steps: [`/ROADMAP.md`](ROADMAP.md)
 
 ### Log [THREEJS]
+
+#### 2026-05-15 — Claude Code (Phase D + Gallery)
+- **Phase D hoàn thành** — 3 modules unit-pass: PostProcessing (WebGPU bloom), WindAnimation (triNoise3D positionNode), DayNightCycle (sun arc + ambient)
+- **Phase C hoàn thành** — VATShader, LODBillboard, CharacterPool unit-pass
+- **Gallery update** — 16 modules có live canvas demo tại `00-Threejs/src/gallery/`
+
+#### 2026-05-14 — Claude Code
+- `GPUParticleSystem` (components) — unit-pass ✅ | base class GPU particles, builder functions pattern, `ParticleNodeContext`, `ParticleNode` type via `ShaderNodeObject<Node>`
+- **Kiến trúc:** `SparkSystem` refactored → wrap `GPUParticleSystem` (composition, không phải inheritance). Public API SparkSystem giữ nguyên 100%.
+- Cross-module import: `SparkSystem` import từ `../GPUParticleSystem` — được phép khi documented trong `meta.json` dependencies
+
+#### 2026-05-13 — Claude Code (session 2)
+- `SparkSystem` (components) — unit-pass ✅ | GPU-driven particles, `PointsNodeMaterial`, TSL, 3 emitter shapes, turbulence
+- **Phase B hoàn thành** — 4/4 modules unit-pass
+- tsconfig path alias `threejs-modules/*` — dùng `vite-tsconfig-paths`, không dùng `file:` protocol
+- `package.json` exports map đã thêm vào `threejs-modules/` (chuẩn bị npm publish sau này)
+- `LODSystem` (utils) — unit-pass ✅ | wrap `THREE.LOD`, typed levels, autoUpdate
+- `ProceduralFracture` (shaders) — unit-pass ✅ | `triNoise3D` vertex displacement along normal
+- `InteriorMapping` (shaders) — unit-pass ✅ | tangent-space parallax, per-room hash variation
+
+#### 2026-05-13 — Claude Code
+- `WorldNoise` (shaders) — unit-pass ✅ | `triNoise3D` built-in, world-space animated noise
+- `RoundedCorners` (shaders) — unit-pass ✅ | UV-space SDF, transparent `NodeMaterial`
+- **Phase A hoàn thành** — 5/5 modules unit-pass
+- `TriplanarMapping` (shaders) — unit-pass ✅ | import từ `three/webgpu`, `three/tsl`
+- Fix `RuntimeGuard/example.ts` — đổi sang `WebGPURenderer` (WebGLRenderer không có `render.drawCalls`)
 
 #### 2026-05-12 — Claude Code
 - Tạo `BABYLONJS/` engine skeleton — `CLAUDE.md` + `babylon-modules/`
@@ -62,16 +78,8 @@
 
 ## BABYLONJS
 
-### Trạng thái Phase B
-
-> Chưa bắt đầu. Khởi động sau khi THREEJS Phase A hoàn thành.
-
-| Module           | Status       |
-| ---------------- | ------------ |
-| `GlobalUniforms` | ⏳ chưa code |
-| `TriplanarMapping` | ⏳ chưa code |
-| `WorldNoise`     | ⏳ chưa code |
-| `RoundedCorners` | ⏳ chưa code |
+**0 modules — Phase A chưa bắt đầu. Điều kiện bắt đầu đã đạt ✅ (THREEJS Phase D xong).**
+→ Module index: [`/ROADMAP.md`](ROADMAP.md)
 
 ### Log [BABYLONJS]
 

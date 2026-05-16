@@ -23,11 +23,11 @@ Web-3D/                          ← Ecosystem root (mở Claude Code ở đây)
 ├── CLAUDE.md                    ← File này — ecosystem only
 ├── GEMINI.md                    ← Gemini ecosystem context
 ├── SYNC.md                      ← Shared AI log — đọc đầu mỗi session
-├── THREEJS/                     ← Three.js engine (đang build — Phase A)
+├── THREEJS/                     ← Three.js engine (Phase D ✅ — 16 modules)
 │   ├── CLAUDE.md                ← Engine rules — đọc khi làm việc trong THREEJS
 │   ├── threejs-modules/         ← Module library
 │   └── 00-Threejs/              ← Main project
-└── BABYLONJS/                   ← Babylon.js engine (tạo sau Phase A)
+└── BABYLONJS/                   ← Babylon.js engine (chưa bắt đầu)
     ├── CLAUDE.md                ← Engine rules — đọc khi làm việc trong BABYLONJS
     └── babylon-modules/         ← Module library
 ```
@@ -60,5 +60,5 @@ Validate: `node THREEJS/validate.js assets/[category]/[name]` từ root này.
 
 | Engine | Thư mục | Trạng thái | CLAUDE.md |
 |---|---|---|---|
-| Three.js | `THREEJS/` | 🔄 Phase A đang build | `THREEJS/CLAUDE.md` |
-| Babylon.js | `BABYLONJS/` | ⏳ Sau Phase A | `BABYLONJS/CLAUDE.md` |
+| Three.js | `THREEJS/` | ✅ Phase D hoàn thành (2026-05-15) — 16 modules | `THREEJS/CLAUDE.md` |
+| Babylon.js | `BABYLONJS/` | ⏳ Chưa bắt đầu | `BABYLONJS/CLAUDE.md` |

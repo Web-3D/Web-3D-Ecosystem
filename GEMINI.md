@@ -31,9 +31,9 @@ Web-3D/                    ← Ecosystem root (mở Gemini ở đây)
 ├── assets/                ← Shared 3D assets — Gemini quản lý catalog
 ├── SYNC.md                ← Shared AI log — đọc đầu mỗi session
 ├── GEMINI.md              ← File này
-├── THREEJS/               ← Three.js engine (Phase A đang build)
+├── THREEJS/               ← Three.js engine (Phase D ✅ — 16 modules)
 │   └── threejs-modules/   ← Module library — Gemini tìm ở đây
-└── BABYLONJS/             ← Babylon.js engine (Phase B — sau Phase A)
+└── BABYLONJS/             ← Babylon.js engine (chưa bắt đầu)
     └── babylon-modules/   ← Module library — Gemini tìm ở đây (khi Phase B bắt đầu)
 ```
 
@@ -53,28 +53,9 @@ Web-3D/                    ← Ecosystem root (mở Gemini ở đây)
 
 ## Trạng thái hiện tại
 
-### Phase A — THREEJS (đang build)
+→ [`/ROADMAP.md`](ROADMAP.md) — nguồn duy nhất cho tiến trình tất cả engines.
 
-```
-THREEJS/threejs-modules/ build order:
-  1. GlobalUniforms      (utils)    — unit-pass ✅
-  2. RuntimeGuard        (utils)    — unit-pass ✅
-  3. TriplanarMapping    (shaders)  — chưa code
-  4. WorldNoise          (shaders)  — chưa code
-  5. RoundedCorners      (shaders)  — chưa code
-
-assets/ — chưa có asset nào
-```
-
-### Phase B — BABYLONJS (chưa bắt đầu)
-
-```
-BABYLONJS/babylon-modules/ build order (mirror Phase A để so sánh 2 engine):
-  1. GlobalUniforms      (utils)    — chưa code
-  2. TriplanarMapping    (shaders)  — chưa code
-  3. WorldNoise          (shaders)  — chưa code
-  4. RoundedCorners      (shaders)  — chưa code
-```
+_Tóm tắt nhanh: Three.js Phase D ✅ 16/16 modules | Babylon.js ⏳ chưa bắt đầu._
 
 ---
 
