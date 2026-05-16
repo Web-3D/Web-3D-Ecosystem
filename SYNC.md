@@ -17,7 +17,7 @@
 
 | Engine     | Phase hiện tại                    | Trạng thái              | Modules done | Ghi chú                             |
 | ---------- | --------------------------------- | ----------------------- | ------------ | ----------------------------------- |
-| `THREEJS`  | Phase D ✅ hoàn thành             | ✅ Tất cả 4 phases xong | 16 / 16      | Tất cả phase A–D unit-pass. Gallery: 16 modules. |
+| `THREEJS`  | Phase D ✅ hoàn thành             | ✅ Tất cả 4 phases xong | 20 / 20      | 20 modules unit-pass. Gallery: 16 cards. Tooling + docs session 2026-05-16. |
 | `BABYLONJS`| Phase A — Environment Foundation  | ⏳ Chưa bắt đầu         | 0 / 4        | Bắt đầu sau khi THREEJS Phase D xong |
 
 > Tiến trình chi tiết → [`/ROADMAP.md`](ROADMAP.md) (nguồn duy nhất cho status).
@@ -28,11 +28,21 @@
 
 ## THREEJS
 
-**16 modules unit-pass — Phase A–D ✅ hoàn thành 2026-05-15.**
+**20 modules unit-pass — Phase A–D ✅ hoàn thành 2026-05-15.**
 Gallery: `00-Threejs/src/gallery/` — 16 live canvas cards. Chưa tích hợp vào scene thực tế.
 → Module index + next steps: [`/ROADMAP.md`](ROADMAP.md)
 
 ### Log [THREEJS]
+
+#### 2026-05-16 — Claude Code (Tooling + Refactor)
+- **shaders/ restructured** — 3 subfolders: `foundation/` (WorldNoise), `vertex/` (WindAnimation, ProceduralFracture, VATShader), `fragment/` (TriplanarMapping, InteriorMapping, RoundedCorners, DissolveShader)
+- **GlobalUniforms v2.0.0 — breaking change** — singleton class + `inject()` → 3 exported TSL `uniform()` nodes + helper functions. Import trực tiếp, không cần `inject()`. Xem `utils/GlobalUniforms/README.md`
+- **Scripts mới** — `find-unused.js` (orphan/stale import detector) + `lint-shaders.js` (TSL/GLSL policy enforcer)
+- **VERSION_INDEX.md xóa** — `meta.json` là nguồn duy nhất cho version; `scan-versions.js` đọc trực tiếp
+- **ARCHITECTURE.md** — thêm File Registry (định danh vai trò từng file trong workspace)
+- **WEEKLY-CHECK.md** — thêm bước 2: kiểm tra npm packages định kỳ cả 2 workspaces
+- `update-index.js` + `validate.js` + `find-unused.js` — hỗ trợ 2-level module depth (shaders/vertex/WindAnimation)
+- `gallery/modules.ts` — fix 7 stale import paths (SparkSystem + GPUParticleSystem: components/ → effects/; 5 shaders: thêm subfolder prefix)
 
 #### 2026-05-15 — Claude Code (Phase D + Gallery)
 - **Phase D hoàn thành** — 3 modules unit-pass: PostProcessing (WebGPU bloom), WindAnimation (triNoise3D positionNode), DayNightCycle (sun arc + ambient)
