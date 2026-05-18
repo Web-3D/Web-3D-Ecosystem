@@ -34,14 +34,15 @@ Web-3D/                          ← Ecosystem root (mở Claude Code ở đây)
 
 ---
 
-## Asset pipeline (shared — mọi engine dùng chung)
+## Asset pipeline
 
 ```
-raw/ (AI tool) → optimized/ (Blender MCP) → production/ (gltf-transform)
+Factory/source/ → Blender bake → Factory/baked/ → gltf-transform → Web-3D/assets/[cat]/production/
 ```
 
 Import path: `../../assets/[category]/[name]/production/` từ project con.  
-Validate: `node THREEJS/validate.js assets/[category]/[name]` từ root này.
+Validate: `node THREEJS/validate.js assets/[category]/[name]` từ root này.  
+Factory rules: `c:\Factory\CLAUDE.md` — bake policy, format, export settings.
 
 ---
 
@@ -60,5 +61,5 @@ Validate: `node THREEJS/validate.js assets/[category]/[name]` từ root này.
 
 | Engine | Thư mục | Trạng thái | CLAUDE.md |
 |---|---|---|---|
-| Three.js | `THREEJS/` | ✅ Phase D hoàn thành (2026-05-15) — 16 modules | `THREEJS/CLAUDE.md` |
+| Three.js | `THREEJS/` | ✅ Phase D hoàn thành (2026-05-15) — 20 modules | `THREEJS/CLAUDE.md` |
 | Babylon.js | `BABYLONJS/` | ⏳ Chưa bắt đầu | `BABYLONJS/CLAUDE.md` |

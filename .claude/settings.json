@@ -35,6 +35,17 @@
             "statusMessage": "Validating output..."
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"c:\\Web-3D\\.claude\\tsc-check.js\"",
+            "timeout": 30,
+            "statusMessage": "Type-checking TypeScript..."
+          }
+        ]
       }
     ]
   }
