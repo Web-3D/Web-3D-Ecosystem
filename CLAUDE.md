@@ -10,7 +10,7 @@
 ## Workspace layout
 
 ```
-Web-3D/                          ← Ecosystem root (mở Claude Code ở đây)
+Engine/                          ← Ecosystem root (mở Claude Code ở đây)
 ├── .claude/skills/              ← Skills cho tất cả engines
 ├── .gemini/                     ← Gemini context
 ├── assets/                      ← Shared 3D assets — dùng chung mọi engine
@@ -23,11 +23,11 @@ Web-3D/                          ← Ecosystem root (mở Claude Code ở đây)
 ├── CLAUDE.md                    ← File này — ecosystem only
 ├── GEMINI.md                    ← Gemini ecosystem context
 ├── SYNC.md                      ← Shared AI log — đọc đầu mỗi session
-├── THREEJS/                     ← Three.js engine (Phase D ✅ — 16 modules)
+├── THREEJS/                     ← Three.js engine (Phase D ✅ — 26 modules)
 │   ├── CLAUDE.md                ← Engine rules — đọc khi làm việc trong THREEJS
 │   ├── threejs-modules/         ← Module library
 │   └── 00-Threejs/              ← Main project
-└── BABYLONJS/                   ← Babylon.js engine (chưa bắt đầu)
+└── BABYLONJS/                   ← Babylon.js engine (Phase A ⏳)
     ├── CLAUDE.md                ← Engine rules — đọc khi làm việc trong BABYLONJS
     └── babylon-modules/         ← Module library
 ```
@@ -37,7 +37,7 @@ Web-3D/                          ← Ecosystem root (mở Claude Code ở đây)
 ## Asset pipeline
 
 ```
-Factory/source/ → Blender bake → Factory/baked/ → gltf-transform → Web-3D/assets/[cat]/production/
+Factory/source/ → Blender bake → Factory/baked/ → gltf-transform → Engine/assets/[cat]/production/
 ```
 
 Import path: `../../assets/[category]/[name]/production/` từ project con.  
@@ -61,5 +61,5 @@ Factory rules: `c:\Factory\CLAUDE.md` — bake policy, format, export settings.
 
 | Engine | Thư mục | Trạng thái | CLAUDE.md |
 |---|---|---|---|
-| Three.js | `THREEJS/` | ✅ Phase D hoàn thành (2026-05-15) — 20 modules | `THREEJS/CLAUDE.md` |
+| Three.js | `THREEJS/` | ✅ Phase D hoàn thành (2026-05-15) — 26 modules | `THREEJS/CLAUDE.md` |
 | Babylon.js | `BABYLONJS/` | ⏳ Chưa bắt đầu | `BABYLONJS/CLAUDE.md` |

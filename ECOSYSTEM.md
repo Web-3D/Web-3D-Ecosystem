@@ -1,4 +1,4 @@
-# ECOSYSTEM.md — Bức tranh 3D Web 2025
+﻿# ECOSYSTEM.md — Bức tranh 3D Web 2025
 
 > Tài liệu tham khảo dài hạn. Cập nhật khi có thay đổi lớn trong ngành.
 > Last updated: 2026-05-15
@@ -234,7 +234,7 @@ Tripo/Meshy → raw/ → Blender MCP (optimize) → optimized/ → gltf-transfor
 AI mesh (Tripo/Meshy) → Blender (weld, simplify, UV, bake) → glTF → gltf-transform → production/
 ```
 
-#### Blender 5.1 — Thay đổi quan trọng cho Web-3D (March 2026)
+#### Blender 5.1 — Thay đổi quan trọng cho Engine (March 2026)
 
 | Feature | Chi tiết | Impact |
 |---------|---------|--------|
@@ -281,7 +281,7 @@ Claude Code
 | **`claude agents --cwd <path>`** | Scope danh sách session theo directory — hữu ích khi có nhiều project |
 | **`/feedback` multi-session** | Gửi feedback kèm session 24h hoặc 7 ngày — debug cross-session issue |
 
-#### Liên quan trực tiếp đến Web-3D workflow
+#### Liên quan trực tiếp đến Engine workflow
 
 **Đang dùng:**
 - Hooks `SessionStart` → auto-load Living Index trong CLAUDE.md

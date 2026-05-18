@@ -1,11 +1,11 @@
-{
+﻿{
   "hooks": {
     "PreCompact": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "node \"c:\\Web-3D\\.claude\\save-session.js\"",
+            "command": "node \"c:\\Engine\\.claude\\save-session.js\"",
             "timeout": 20,
             "statusMessage": "Saving session memory before compact..."
           }
@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"c:\\Web-3D\\THREEJS\\update-index.js\"",
+            "command": "node \"c:\\Engine\\THREEJS\\update-index.js\"",
             "timeout": 15,
             "statusMessage": "Updating workspace index..."
           }
@@ -30,7 +30,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"c:\\Web-3D\\.claude\\validate-hook.js\"",
+            "command": "node \"c:\\Engine\\.claude\\validate-hook.js\"",
             "timeout": 15,
             "statusMessage": "Validating output..."
           }
@@ -41,7 +41,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"c:\\Web-3D\\.claude\\tsc-check.js\"",
+            "command": "node \"c:\\Engine\\.claude\\tsc-check.js\"",
             "timeout": 30,
             "statusMessage": "Type-checking TypeScript..."
           }

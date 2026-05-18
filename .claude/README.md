@@ -1,6 +1,6 @@
-# .claude/ — Hệ thống Skills & Context
+﻿# .claude/ — Hệ thống Skills & Context
 
-> Thư mục cấu hình cho Claude Code trong **ecosystem `Web-3D/`** — dùng chung cho tất cả engines (THREEJS, BABYLONJS).
+> Thư mục cấu hình cho Claude Code trong **ecosystem `Engine/`** — dùng chung cho tất cả engines (THREEJS, BABYLONJS).
 > Đọc file này để hiểu toàn bộ hệ thống trước khi thêm hoặc sửa skill.
 > → Engine rules: `THREEJS/CLAUDE.md` (Three.js) | `BABYLONJS/CLAUDE.md` (Babylon.js)
 
@@ -9,7 +9,7 @@
 ## Cấu trúc thư mục
 
 ```
-Web-3D/
+Engine/
 ├── .claude/                         ← ecosystem root (file này)
 │   └── skills/
 │       └── shared-gltf-pipeline/   ← engine-agnostic, load từ mọi workspace
@@ -29,7 +29,7 @@ Web-3D/
         └── dispose-pattern/         ← placeholder, build khi Phase A Babylon bắt đầu
 ```
 
-**Cách Claude Code load:** Khi mở workspace tại `THREEJS/`, tự động load cả `THREEJS/.claude/skills/` lẫn `Web-3D/.claude/skills/` (parent). Không cần prefix vì mỗi workspace chỉ thấy skills của engine mình.
+**Cách Claude Code load:** Khi mở workspace tại `THREEJS/`, tự động load cả `THREEJS/.claude/skills/` lẫn `Engine/.claude/skills/` (parent). Không cần prefix vì mỗi workspace chỉ thấy skills của engine mình.
 
 ---
 

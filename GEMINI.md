@@ -27,19 +27,19 @@
 ## Workspace layout
 
 ```
-Web-3D/                    ← Ecosystem root (mở Gemini ở đây)
+Engine/                    ← Ecosystem root (mở Gemini ở đây)
 ├── .gemini/               ← Brain Gemini (file này thuộc đây)
 ├── .claude/               ← Brain Claude Code (đừng sửa)
 ├── assets/                ← Shared 3D assets — Gemini quản lý catalog
 ├── SYNC.md                ← Shared AI log — đọc đầu mỗi session
 ├── GEMINI.md              ← File này
-├── FACTORY-COMPATIBILITY.md ← Ma trận tương thích Web-3D ↔ Factory tools
+├── FACTORY-COMPATIBILITY.md ← Ma trận tương thích Engine ↔ Factory tools
 ├── THREEJS/               ← Three.js engine (Phase D ✅ — 26 modules)
 │   └── threejs-modules/   ← Module library — Gemini tìm ở đây
 └── BABYLONJS/             ← Babylon.js engine (chưa bắt đầu)
     └── babylon-modules/   ← Module library — Gemini tìm ở đây (khi Phase A bắt đầu)
 
-c:\Factory\                ← DCC pipeline (Blender, Houdini, Substance) — ngoài Web-3D root
+c:\Factory\                ← DCC pipeline (Blender, Houdini, Substance) — ngoài Engine root
 c:\Docs\                   ← VitePress docs site — sync từ tất cả projects, deploy Vercel
     └── sync.js            ← Chạy: node sync.js --push để update toàn bộ docs
 ```
@@ -86,7 +86,7 @@ c:\Docs\                   ← VitePress docs site — sync từ tất cả proj
 | Bộ luật asset | `assets/README.md` → catalog + rules |
 | Xem tất cả assets đã validate | `assets/REGISTRY.json` — auto-generated, đừng sửa tay |
 | Tính năng nên làm sau (Three.js) | `THREEJS/deferred/README.md` |
-| Xem compatibility Factory ↔ Web-3D | `FACTORY-COMPATIBILITY.md` |
+| Xem compatibility Factory ↔ Engine | `FACTORY-COMPATIBILITY.md` |
 | Update docs site | `c:\Docs\sync.js` — chạy `node sync.js --push` |
 
 ---
@@ -98,7 +98,7 @@ c:\Docs\                   ← VitePress docs site — sync từ tất cả proj
 - **Live:** https://docs-3d-ng.vercel.app/
 - **Update:** `cd c:\Docs && node sync.js --push` — copy ALL MD từ mọi project → commit → push → Vercel redeploy tự động
 
-**Nguồn sync:** Web-3D, THREEJS (26 modules README), BABYLONJS, Factory — tổng ~37+ files.
+**Nguồn sync:** Engine, THREEJS (26 modules README), BABYLONJS, Factory — tổng ~37+ files.
 
 ---
 
