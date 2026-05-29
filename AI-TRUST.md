@@ -1,6 +1,6 @@
 ---
 title: AI Trust Boundary
-applies-to: Claude Code, Gemini
+applies-to: Claude Code
 ---
 
 # AI-TRUST.md — Ranh giới quyền AI

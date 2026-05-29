@@ -12,7 +12,6 @@
 ```
 Engine/                          ← Ecosystem root (mở Claude Code ở đây)
 ├── .claude/skills/              ← Skills cho tất cả engines
-├── .gemini/                     ← Gemini context
 ├── assets/                      ← Shared 3D assets — dùng chung mọi engine
 │   ├── REGISTRY.json            ← Auto-generated, không sửa tay
 │   ├── buildings/
@@ -21,8 +20,7 @@ Engine/                          ← Ecosystem root (mở Claude Code ở đây)
 │   ├── props/
 │   └── textures/
 ├── CLAUDE.md                    ← File này — ecosystem only
-├── GEMINI.md                    ← Gemini ecosystem context
-├── SYNC.md                      ← Shared AI log — đọc đầu mỗi session
+├── SYNC.md                      ← Progress log — đọc đầu mỗi session
 ├── THREEJS/                     ← Three.js engine (Phase D ✅ — 26 modules)
 │   ├── CLAUDE.md                ← Engine rules — đọc khi làm việc trong THREEJS
 │   ├── threejs-modules/         ← Module library
@@ -50,10 +48,11 @@ Factory rules: `c:\Factory\CLAUDE.md` — bake policy, format, export settings.
 
 | AI | Làm gì ở tầng này |
 |---|---|
-| **Claude Code** | Đọc SYNC.md, xác định engine đang làm, delegate xuống engine CLAUDE.md |
-| **Gemini** | Quản lý assets/, research market, push GitHub |
+| **Claude Code** | Toàn bộ: đọc SYNC.md, xác định engine, delegate xuống engine CLAUDE.md, quản lý assets/, research, git |
 
-**Phân quyền rõ:** Khi task thuộc về engine cụ thể → đọc engine CLAUDE.md trước khi làm.
+> Gemini rời ecosystem 2026-05-29 (Antigravity bỏ hỗ trợ IDE) — Claude đảm nhận solo. NgQuan duyệt + quyết định push.
+
+**Phân quyền rõ:** Khi task thuộc về engine cụ thể → đọc engine CLAUDE.md trước khi làm. Push GitHub: chỉ khi NgQuan duyệt.
 
 ---
 

@@ -1,12 +1,10 @@
 # SYNC.md — Shared AI Context Log
 
-> File này là **bảng thông báo tiến độ chung** giữa Claude Code và Gemini.
+> File này là **bảng thông báo tiến độ** của Claude Code (xử lý toàn bộ ecosystem từ 2026-05-29).
 > Đọc đầu mỗi session để biết trạng thái hiện tại mà không cần giải thích lại.
 >
 > **KHÔNG thay thế:**
-> - `.claude/skills/module-handoff/` — quy trình Claude tích hợp module (HOW)
-> - `.gemini/skills/handoff-to-claude/` — quy trình Gemini viết SUMMARY.md (HOW)
-> - `SUMMARY.md` trong từng project — payload cụ thể của mỗi handoff (WHAT to integrate)
+> - `.claude/skills/module-handoff/` — quy trình Claude tích hợp module vào project (HOW)
 >
 > **Ghi khi:** breaking API change, quyết định kiến trúc, cross-engine decision.
 > **Không ghi:** tạo/xóa module thông thường (→ Living Index), bug fix, typo, format code.
@@ -18,7 +16,7 @@
 | Engine     | Phase hiện tại                    | Trạng thái              | Modules done | Ghi chú                             |
 | ---------- | --------------------------------- | ----------------------- | ------------ | ----------------------------------- |
 | `THREEJS`  | Phase E ✅ hoàn thành             | ✅ Phase A–E xong       | 29 / 29      | +3 Phase E: InteractionSystem, AnimationSystem, ScrollTimeline. Docs site live 2026-05-17. |
-| `BABYLONJS`| Phase B — Advanced Environment    | ✅ Hoàn thành           | 8 / 8        | Phase A+B done. Phase C tiếp theo |
+| `BABYLONJS`| Phase D — Polish & Deploy         | ✅ Hoàn thành           | 14 / 14      | Phase A+B+C+D done. Phase E feasibility study tiếp theo |
 
 > Tiến trình chi tiết → [`/ROADMAP.md`](ROADMAP.md) (nguồn duy nhất cho status).
 
@@ -101,10 +99,16 @@ Gallery: `00-Threejs/src/gallery/` — 16 live canvas cards. Chưa tích hợp v
 
 ## BABYLONJS
 
-**4/4 modules — Phase A ✅ hoàn thành (2026-05-18).** Phase B chờ bắt đầu.
+**14/14 modules — Phase A+B+C+D ✅ hoàn thành (2026-05-18).** Phase E (feasibility study) tiếp theo.
 → Module index: [`/ROADMAP.md`](ROADMAP.md)
 
 ### Log [BABYLONJS]
+
+#### 2026-05-18 — Claude Code (Phase D hoàn thành)
+- **PostProcessing** unit-pass ✅ — `DefaultRenderingPipeline`: bloom auto-apply qua `scene.render()`, không cần `pp.render()` như Three.js
+- **WindAnimation** unit-pass ✅ — ShaderMaterial GLSL: TSL `triNoise3D` → value noise3D tự impl; object-space + `worldViewProjection`
+- **DayNightCycle** unit-pass ✅ — `THREE.AmbientLight` → `HemisphericLight`; `light.position` → `light.direction`; `Color3.Lerp()` thay mutate-in-place
+- **Phase D ✅ hoàn thành** — 3/3 modules, tổng 14 modules toàn engine
 
 #### 2026-05-18 — Claude Code (Phase A bắt đầu)
 - Tạo `00-Babylon/` project — Vite + TypeScript + Babylon.js 8.56.2
@@ -113,6 +117,7 @@ Gallery: `00-Threejs/src/gallery/` — 16 live canvas cards. Chưa tích hợp v
 - `WorldNoise` unit-pass ✅ — NME: `SimplexPerlin3DBlock` + `AnimatedInputBlockTypes.RealTime` (không cần update() thủ công)
 - `RoundedCorners` unit-pass ✅ — ShaderMaterial GLSL: UV SDF, engine auto-convert WGSL
 - **Phase B hoàn thành:** LODSystem (Mesh.addLODLevel), ProceduralFracture (GLSL vertex displacement), InteriorMapping (GLSL parallax + UV derivatives), SparkSystem (GPUParticleSystem + NoiseProceduralTexture)
+- **Phase C hoàn thành:** VATShader (GLSL ES3 + gl_VertexID), LODBillboard (BILLBOARDMODE_ALL plane), CharacterPool (TransformNode generic pool)
 
 #### 2026-05-12 — Claude Code
 - Tạo engine skeleton: `BABYLONJS/CLAUDE.md` + `babylon-modules/`
@@ -134,7 +139,7 @@ Gallery: `00-Threejs/src/gallery/` — 16 live canvas cards. Chưa tích hợp v
 
 **Ghi vào đây khi:**
 - Breaking change API của module (params đổi tên, method bị xóa)
-- Quyết định kiến trúc quan trọng ảnh hưởng cả 2 AI
+- Quyết định kiến trúc quan trọng ảnh hưởng nhiều engine
 - Thay đổi cross-engine (đổi convention, đổi cấu trúc thư mục chung)
 - Update trạng thái phase (module xong → update bảng tổng + bảng engine)
 
@@ -142,7 +147,7 @@ Gallery: `00-Threejs/src/gallery/` — 16 live canvas cards. Chưa tích hợp v
 
 **Format mỗi entry:**
 ```
-#### YYYY-MM-DD — [Claude Code | Gemini]
+#### YYYY-MM-DD — Claude Code
 - [Nội dung thay đổi ngắn gọn — 1 dòng mỗi thay đổi]
 ```
 

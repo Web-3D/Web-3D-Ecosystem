@@ -96,8 +96,7 @@ Source: [z.tools](https://z.tools/blog/meshy-6-vs-tripo-v3-1-3d) | [meshy.ai](ht
 │   └── gltf-transform  — CLI optimize/compress/analyze glTF
 │
 └── I. AI Development Tooling (build workflow)
-    ├── Claude Code     — AI-first coding, agent teams, MCP, hooks
-    └── Gemini          — architecture, git, maintenance
+    └── Claude Code     — AI-first coding, agent teams, MCP, hooks (xử lý toàn bộ: code, architecture, git, maintenance)
 ```
 
 ---
@@ -248,7 +247,7 @@ AI mesh (Tripo/Meshy) → Blender (weld, simplify, UV, bake) → glTF → gltf-t
 - `KHR_materials_transmission` — glass, water material trực tiếp trong glTF
 - `KHR_texture_transform` — scale/offset texture không cần UV bake lại
 
-**Blender MCP** (đang dùng): Gemini điều khiển Blender programmatically → optimize, weld, simplify mesh → export glTF → production pipeline.
+**Blender MCP** (đang dùng): Factory pipeline điều khiển Blender programmatically → optimize, weld, simplify mesh → export glTF → production pipeline.
 
 Sources: [Blender 5.1 release](https://www.blender.org/download/releases/5-1/) | [5.1 game dev features](https://www.strayspark.studio/blog/blender-5-1-features-game-developers-spring-2026)
 
@@ -289,7 +288,7 @@ Claude Code
 - Memory system (`~/.claude/projects/`) → persistent context across sessions
 
 **Có thể khai thác thêm:**
-- MCP + Blender → Gemini hiện dùng MCP để drive Blender; Claude Code có thể dùng tương tự cho workflow debug 3D
+- MCP + Blender → Claude Code dùng MCP (qua Factory) để drive Blender cho optimize + workflow debug 3D
 - Subagents → Explore agent đang dùng cho search trong session
 - Agent SDK → build custom test runner cho `validate.js` pipeline tự động
 
